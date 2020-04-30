@@ -1,1 +1,2 @@
-import {tax, Budget } from '../Components';
+import {Tax, Budget } from '../Components';
+console.log(Budget.wantsBudget)

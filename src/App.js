@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
 // import React from 'react';
 import {Tax, Budget, Chart} from './Components'
+import Data from './data';
 
 const App = () => {
     const [salary, Setsalary] = useState('');
@@ -16,8 +17,6 @@ const App = () => {
     const savingsFormula = (salary - taxFormula)*(savingsBudget/100);
 
     const totalbudget = parseInt(wantsBudget) + parseInt(needsBudget) + parseInt(savingsBudget);
-    console.log(totalbudget)
-    console.log(wantsBudget)
     return (
         <div >
         <input className='styles.salary' type='text' placeholder="Enter Earnings Per Year" value={salary} onChange={(e) => Setsalary(e.target.value)}/>
@@ -35,8 +34,9 @@ const App = () => {
                 }
             }}
         >CALCULATE BUDGET</button>
-               
+        
         <Chart wantsBudget={wantsBudget}/>
+        <Data wantsBudget={wantsBudget}/>
     </div>
         )
     }
