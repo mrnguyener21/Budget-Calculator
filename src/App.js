@@ -1,7 +1,5 @@
 import React, {useState} from 'react';
-// import React from 'react';
 import {Tax, Budget, Chart} from './Components'
-import Data from './data';
 
 const App = () => {
     const [salary, Setsalary] = useState('');
@@ -35,8 +33,7 @@ const App = () => {
             }}
         >CALCULATE BUDGET</button>
         
-        <Chart wantsBudget={wantsBudget}/>
-        <Data wantsBudget={wantsBudget}/>
+        <Chart wantsFormula={wantsFormula} needsFormula={needsFormula} savingsFormula={savingsFormula} taxFormula={taxFormula}/>
     </div>
         )
     }
@@ -55,4 +52,5 @@ const App = () => {
 //how do i pass the value of my input in different components back to the API? They are currently states
 // finding an approrpiate tax API
 // onclick, run the calculations. figure
+
 
