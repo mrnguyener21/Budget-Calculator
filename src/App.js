@@ -15,6 +15,7 @@ const App = () => {
     const savingsFormula =  (salary - taxFormula)*(savingsBudget/100);
 
     const totalBudget = parseInt(wantsBudget) + parseInt(needsBudget) + parseInt(savingsBudget);
+
     return (
         <div >
         <input className='styles.salary' type='text' placeholder="Enter Earnings Per Year" value={salary} onChange={(e) => Setsalary(e.target.value)}/>
@@ -26,14 +27,14 @@ const App = () => {
         />
         <button onClick={ () => {
                 if(totalBudget === 100){
-                    console.log(taxFormula, wantsFormula, needsFormula, savingsFormula)
+                    console.log(salary, totalBudget, wantsFormula)
                 }else{
                     alert(`current budget is ${totalBudget}. Wants, needs and savings must add up to be 100`)
                 }
             }}
         >CALCULATE BUDGET</button>
         
-        <Chart totalBudget={totalBudget}wantsFormula={wantsFormula} needsFormula={needsFormula} savingsFormula={savingsFormula} taxFormula={taxFormula}/>
+        <Chart salary={parseInt(salary)} totalBudget={totalBudget}wantsFormula={wantsFormula} needsFormula={needsFormula} savingsFormula={savingsFormula} taxFormula={taxFormula}/>
     </div>
         )
     }
