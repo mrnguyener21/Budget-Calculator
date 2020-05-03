@@ -18,7 +18,7 @@ const App = () => {
 
     return (
         <div >
-        <input className='styles.salary' type='text' placeholder="Enter Earnings Per Year" value={salary} onChange={(e) => Setsalary(e.target.value)}/>
+        <input type='text' placeholder="Enter Earnings Per Year" value={salary} onChange={(e) => Setsalary(e.target.value)}/>
         <Tax taxRate={taxRate} setTaxRate={setTaxRate} />
         <Budget 
             wantsBudget={wantsBudget} setWantsBudget={setWantsBudget} 
