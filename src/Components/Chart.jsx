@@ -1,23 +1,16 @@
-import React from 'react';
+/* eslint-disable no-unused-expressions */
+import React, { useState } from 'react';
 import {Doughnut} from 'react-chartjs-2';
-import styles from './Budget.module.css'
+import styles from './Chart.module.css'
 
 const Chart = ({salary,totalBudget, wantsFormula, needsFormula, savingsFormula, taxFormula}) => {
-    // const salaryData = [{name:'Salary',value:salary}] 
-    // const COLORS = ['#0088FE', '#00C49F', '#FFBB28', '#FF8042'];
-    // const budget = [
-    //     {name:'Wants',value:wantsFormula},
-    //     {name:'Needs',value:needsFormula},
-    //     {name:'Savings',value:savingsFormula},
-    //     {name: 'Tax', value:taxFormula}
-
-    // ];
-
+    const [click, setClick] = useState('no')
     const data =  {
         labels: [
             'Wants',
             'Needs',
-            'Savings'
+            'Savings',
+            'Tax',
         ],
         datasets: [{
             data: [wantsFormula, needsFormula, savingsFormula, taxFormula],
@@ -35,17 +28,28 @@ const Chart = ({salary,totalBudget, wantsFormula, needsFormula, savingsFormula, 
             ]
         }]
     };
+    
 
-
-
-    return(
-        totalBudget === 100?(
-            <div>
-                <Doughnut data={data}/>
-            </div>
-
-        ):null
+    return (
+        <>
+        <button onClick={()=>{
+            totalBudget === 100?(
+               setClick('yes') && console.log('works')
+            ) : console.log('fail')
+        }}
+        >CALCULATE BUDGET</button>
+        {click==='yes'?(
+            <Doughnut className={styles.doughnutGraph}data={data}/>
+        ):console.log('no click')}
+        </>
     )
 }
-
-export default Chart;
+    
+    export default Chart;
+    
+                // if(totalBudget === 100){
+                //     // console.log(salary, totalBudget, wantsFormula)
+                //     <Doughnut data={data}/>
+                // }else{
+                //     alert(`current budget is ${totalBudget}. Wants, needs and savings must add up to be 100`)
+                // }

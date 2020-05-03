@@ -25,14 +25,14 @@ const App = () => {
             needsBudget={needsBudget} setNeedsBudget={setNeedsBudget}
             savingsBudget={savingsBudget} setSavingsBudget={setSavingsBudget}
         />
-        <button onClick={ () => {
+        {/* <button onClick={ () => {
                 if(totalBudget === 100){
                     console.log(salary, totalBudget, wantsFormula)
                 }else{
                     alert(`current budget is ${totalBudget}. Wants, needs and savings must add up to be 100`)
                 }
             }}
-        >CALCULATE BUDGET</button>
+        >CALCULATE BUDGET</button> */}
         
         <Chart salary={parseInt(salary)} totalBudget={totalBudget}wantsFormula={wantsFormula} needsFormula={needsFormula} savingsFormula={savingsFormula} taxFormula={taxFormula}/>
     </div>
