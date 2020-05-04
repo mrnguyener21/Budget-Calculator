@@ -4,7 +4,7 @@ import {Doughnut} from 'react-chartjs-2';
 import styles from './Chart.module.css'
 
 const Chart = ({salary,totalBudget, wantsFormula, needsFormula, savingsFormula, taxFormula}) => {
-    const [click, setClick] = useState('no')
+    const [click, setClick] = useState(false)
     const data =  {
         labels: [
             'Wants',
@@ -34,11 +34,11 @@ const Chart = ({salary,totalBudget, wantsFormula, needsFormula, savingsFormula, 
         <>
         <button onClick={()=>{
             totalBudget === 100?(
-               setClick('yes') && console.log('works')
+               setClick(true) && console.log('works')
             ) : console.log('fail')
         }}
         >CALCULATE BUDGET</button>
-        {click==='yes'?(
+        {click?(
             <Doughnut className={styles.doughnutGraph}data={data}/>
         ):console.log('no click')}
         </>

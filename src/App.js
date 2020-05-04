@@ -1,6 +1,8 @@
 import React, {useState} from 'react';
 import {Tax, Budget, Chart} from './Components'
 
+import styles from './App.module.css'
+
 const App = () => {
     const [salary, Setsalary] = useState('');
     const [taxRate, setTaxRate] = useState('');
@@ -17,7 +19,7 @@ const App = () => {
     const totalBudget = parseInt(wantsBudget) + parseInt(needsBudget) + parseInt(savingsBudget);
 
     return (
-        <div >
+        <div className={styles.container}>
         <input type='text' placeholder="Enter Earnings Per Year" value={salary} onChange={(e) => Setsalary(e.target.value)}/>
         <Tax taxRate={taxRate} setTaxRate={setTaxRate} />
         <Budget 
