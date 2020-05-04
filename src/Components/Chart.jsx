@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import {Doughnut} from 'react-chartjs-2';
 import styles from './Chart.module.css'
 
-const Chart = ({salary,totalBudget, wantsFormula, needsFormula, savingsFormula, taxFormula}) => {
+const Chart = ({totalBudget, wantsFormula, needsFormula, savingsFormula, taxFormula}) => {
     const [click, setClick] = useState(false)
     const data =  {
         labels: [
@@ -34,8 +34,8 @@ const Chart = ({salary,totalBudget, wantsFormula, needsFormula, savingsFormula, 
         <>
         <button onClick={()=>{
             totalBudget === 100?(
-               setClick(true) && console.log('works')
-            ) : console.log('fail')
+               setClick(true) 
+            ) : alert(`current budget is ${totalBudget}. Wants, needs and savings must add up to be 100`)
         }}
         >CALCULATE BUDGET</button>
         {click?(
@@ -46,10 +46,3 @@ const Chart = ({salary,totalBudget, wantsFormula, needsFormula, savingsFormula, 
 }
     
     export default Chart;
-    
-                // if(totalBudget === 100){
-                //     // console.log(salary, totalBudget, wantsFormula)
-                //     <Doughnut data={data}/>
-                // }else{
-                //     alert(`current budget is ${totalBudget}. Wants, needs and savings must add up to be 100`)
-                // }
